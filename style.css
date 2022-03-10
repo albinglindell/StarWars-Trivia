@@ -36,7 +36,7 @@ body{
     border: 2px solid #021A27;
     border-radius: 7px;
 }
-.btnStyle{
+.buttonContainer button{
     padding: 4px;
     margin: 3px;
     background: #E2EEF2;

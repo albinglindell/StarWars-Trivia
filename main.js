@@ -196,10 +196,10 @@ let character1Component =(user)=>`
     <img src="${user.pictureUrl}" alt="${user.name}">
     </div>
     <div class="buttonContainer">
-    <button id="componentBtn" class="weight btnStyle" data-id="${user.id}">Weight</button>
-    <button id="componentBtn" class="length btnStyle" data-id="${user.id}">Length</button>
-    <button id="componentBtn" class="hairColor btnStyle" data-id="${user.id}">Hair Color</button>
-    <button id="componentBtn" class="gender btnStyle" data-id="${user.id}">Gender</button>
+    <button id="componentBtn" class="weight" data-id="${user.id}">Weight</button>
+    <button id="componentBtn" class="length" data-id="${user.id}">Length</button>
+    <button id="componentBtn" class="hairColor" data-id="${user.id}">Hair Color</button>
+    <button id="componentBtn" class="gender" data-id="${user.id}">Gender</button>
 </div>
 </div>
 `
