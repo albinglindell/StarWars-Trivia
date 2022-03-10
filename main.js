@@ -69,7 +69,7 @@ class Character{
         }else if(name =="Chewbacca"){
             this.pictureUrl="./img/Chewbacca.png"
         }else if(name == "Leia Organa"){
-            this.pictureUrl="./img/leia.png"
+            this.pictureUrl="./img/Leia.png"
         }
     }
     weight(user){
