@@ -1,25 +1,39 @@
 const getCharacters = document.querySelector(".getCharacters")
 const box1 = document.querySelector(".box1")
 const box2 = document.querySelector(".box2")
+const infoContainer1 = document.querySelector(".infoContainer1")
+const infoContainer2 = document.querySelector(".infoContainer2")
 const character1 = document.getElementById("character1")
 const character2 = document.getElementById("character2")
+
+infoContainer1.classList.add("hidden")
+infoContainer2.classList.add("hidden")
+
+let buttonCheck =(profile,otherGuy,dataAttr,button)=>{
+    if(profile.id==dataAttr){
+        if(button.className=="weight"){
+            profile.weight(otherGuy)
+        }else if(button.className=="length"){
+            console.log("lång som fan")
+        }else if(button.className=="hairColor"){
+            console.log("vackert hår")
+        }else if(button.className=="gender"){
+            console.log(profile.gender)
+        }
+    }
+}
+
 
 const butnFunc = (profile)=>{
     const componentBtn = document.querySelectorAll("#componentBtn")
         componentBtn.forEach(button=>{
             button.addEventListener("click", ()=>{
                 let dataAttr = button.getAttribute("data-id")
-                    if(profile.id==dataAttr){
-                        if(button.className=="weight"){
-                            console.log("tung som fan")
-                        }else if(button.className=="length"){
-                            console.log("lång som fan")
-                        }else if(button.className=="hairColor"){
-                            console.log("vackert hår")
-                        }else if(button.className=="gender"){
-                            console.log(profile.gender)
-                        }
-                    }
+                if(profile ===profile1){
+                    buttonCheck(profile1,profile2,dataAttr,button)
+                }else{
+                   buttonCheck(profile2,profile1,dataAttr,button)
+                }
             })
         })
 }
@@ -57,8 +71,39 @@ class Character{
         }else if(name == "Leia Organa"){
             this.pictureUrl="./img/leia.png"
         }
-      
+    }
+    weight(user){
 
+        let weightDiff =  Math.floor(this.mass) - Math.floor(user.mass)
+        if(this.mass > user.mass){
+            if(this == profile1){
+             infoContainer1.classList.remove("hidden")
+                infoContainer1.innerHTML= `<h2>Damn! I weigh ${this.mass}kg! and ${user.name} weigh ${user.mass}kg! thats ${weightDiff}kg less than me!</h2>`
+            }else if(this == profile2){
+             infoContainer2.classList.remove("hidden")
+
+                infoContainer2.innerHTML= `<h2>Damn! I weigh ${this.mass}kg! and ${user.name} weigh ${user.mass}kg! thats ${weightDiff}kg less than me!</h2>`
+            }
+        }else if(this.mass < user.mass){
+            if(this ==profile1){
+             infoContainer1.classList.remove("hidden")
+
+                infoContainer1.innerHTML= `<h2>damn i am a small boi</h2>`
+            }else{
+             infoContainer2.classList.remove("hidden")
+
+                infoContainer2.innerHTML= `<h2>
+                damn i am a small boi</h2>`
+            }
+        }else{
+            if(this ==profile1){
+                infoContainer1.innerHTML= `<h2>We have the exact same weight</h2>`
+            }else{
+                infoContainer2.innerHTML= `<h2>
+                We have the exact same weight</h2>`
+            }
+
+        }
     }
 }
 
@@ -67,7 +112,6 @@ let character1Component =(user)=>`
     <div class="info">
     <h1 class="name">${user.name}</h1>
     <img src="${user.pictureUrl}" alt="${user.name}">
-        <p class="info"></p>
     </div>
     <div class="buttonContainer">
     <button id="componentBtn" class="weight" data-id="${user.id}">Weight</button>
@@ -94,6 +138,8 @@ getCharacters.addEventListener("click",()=>{
     if(character1.value === "null" || character2.value === "null"){
         alert("you need to pick your characters")
     }else{
+        infoContainer1.classList.add("hidden")
+        infoContainer2.classList.add("hidden")
     fetching(character1.value)
     .then(data=>{
         profile1 = new Character(data.name,data.gender,data.height,data.mass,data.hair_color,character1.value)

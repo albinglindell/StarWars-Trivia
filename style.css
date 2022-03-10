@@ -37,7 +37,7 @@ body{
 }
 .selectCharecter{
     align-self: flex-end;
-    margin: 5% 0;
+    margin: 0% 0;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -60,4 +60,32 @@ width: 7rem;
     display: flex;
     flex-direction: column;
     align-items: center;
+}
+.infoBox{
+    width: 30vw;
+    height: 10vh;
+}
+.infoContainerWrapper{
+    width: 100vw;
+    height: 12vh;
+    display: flex;
+    justify-content: space-around;
+    margin-top: 1%;
+
+}
+.infoContainer1, .infoContainer2{
+width: 30vw;
+height: 100%;
+background: #546C6F;
+border: 4px solid #3A5959;
+border-radius: 10px;
+}
+
+.infoContainer1 h2, .infoContainer2 h2{
+    font-size: 18px;
+    padding: 3px;
+}
+
+.hidden{
+    visibility: hidden;
 }
