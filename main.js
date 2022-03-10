@@ -18,7 +18,7 @@ let buttonCheck =(profile,otherGuy,dataAttr,button)=>{
         }else if(button.className=="hairColor"){
             profile.hairColor(otherGuy)
         }else if(button.className=="gender"){
-            console.log(profile.gender)
+            profile.checkGender(otherGuy)
         }
     }
 }
@@ -144,6 +144,9 @@ class Character{
             if(this.haircolor==="none" || this.haircolor === "n/a"){
                 infoContainer1.classList.remove("hidden")
                 infoContainer1.innerHTML=`<h2>I am so sad that i dont have any hair :( i wish i had beautiful ${user.haircolor} as ${user.name}</h2>`
+            }else if(this.haircolor== user.haircolor){
+                infoContainer1.classList.remove("hidden")
+                infoContainer1.innerHTML=`<h2>Both me and ${user.name} have the same beautiful haircolor!</h2>`
             }else{
                 infoContainer1.classList.remove("hidden")
             infoContainer1.innerHTML=`<h2>Dayum I look good in my ${this.haircolor} hair! I feel sorry for ${user.name} with that ugly ${user.haircolor} hair!</h2>`
@@ -152,6 +155,9 @@ class Character{
             if(this.haircolor==="none" || this.haircolor === "n/a"){
                 infoContainer2.classList.remove("hidden")
                 infoContainer2.innerHTML=`<h2>I am so sad that i dont have any hair :( i wish i had beautiful ${user.haircolor} as ${user.name}</h2>`
+            }else if(this.haircolor== user.haircolor){
+                infoContainer2.classList.remove("hidden")
+                infoContainer2.innerHTML=`<h2>Both me and ${user.name} have the same beautiful haircolor!</h2>`
             }else{
                 infoContainer2.classList.remove("hidden")
             infoContainer2.innerHTML=`<h2>Dayum I look good in my ${this.haircolor} hair! I feel sorry for ${user.name} with that ugly ${user.haircolor} hair!</h2>`
@@ -160,7 +166,26 @@ class Character{
            
         }
     }
-
+    checkGender(user){
+        if(this == profile1){
+            if(this.gender==user.gender){
+                infoContainer1.classList.remove("hidden")
+                infoContainer1.innerHTML=`<h2>Cool! me and ${user.name} is both ${this.gender}</h2>`
+            }else{
+                infoContainer1.classList.remove("hidden")
+                infoContainer1.innerHTML=`<h2>Noob! you are a ${user.gender}! Not a blessed ${this.gender} as me!</h2>`
+            }
+        }else{
+            if(this.gender==user.gender){
+            infoContainer2.classList.remove("hidden")
+            infoContainer2.innerHTML=`<h2>Cool! me and ${user.name} is both ${this.gender}</h2>`
+        }else{
+                infoContainer2.classList.remove("hidden")
+                infoContainer2.innerHTML=`<h2>Noob! you are a ${user.gender}! Not a blessed ${this.gender} as me!</h2>`
+            }
+        }
+        
+    }
 
 }
 
@@ -171,10 +196,10 @@ let character1Component =(user)=>`
     <img src="${user.pictureUrl}" alt="${user.name}">
     </div>
     <div class="buttonContainer">
-    <button id="componentBtn" class="weight" data-id="${user.id}">Weight</button>
-    <button id="componentBtn" class="length" data-id="${user.id}">Length</button>
-    <button id="componentBtn" class="hairColor" data-id="${user.id}">Hair Color</button>
-    <button id="componentBtn" class="gender" data-id="${user.id}">Gender</button>
+    <button id="componentBtn" class="weight btnStyle" data-id="${user.id}">Weight</button>
+    <button id="componentBtn" class="length btnStyle" data-id="${user.id}">Length</button>
+    <button id="componentBtn" class="hairColor btnStyle" data-id="${user.id}">Hair Color</button>
+    <button id="componentBtn" class="gender btnStyle" data-id="${user.id}">Gender</button>
 </div>
 </div>
 `
