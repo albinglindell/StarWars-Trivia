@@ -14,9 +14,9 @@ let buttonCheck =(profile,otherGuy,dataAttr,button)=>{
         if(button.className=="weight"){
             profile.weight(otherGuy)
         }else if(button.className=="length"){
-            console.log("lång som fan")
+            profile.length(otherGuy)
         }else if(button.className=="hairColor"){
-            console.log("vackert hår")
+            profile.hairColor(otherGuy)
         }else if(button.className=="gender"){
             console.log(profile.gender)
         }
@@ -105,6 +105,63 @@ class Character{
 
         }
     }
+
+    length(user){
+        let lengthDiff =  Math.floor(this.height) - Math.floor(user.height)
+        if(this.height > user.height){
+            if(this == profile1){
+             infoContainer1.classList.remove("hidden")
+                infoContainer1.innerHTML= `<h2>Damn! I am ${this.height}cm, and ${user.name}  is ${user.height}cm! Thats ${lengthDiff} cm less than me!</h2>`
+            }else if(this == profile2){
+             infoContainer2.classList.remove("hidden")
+
+             infoContainer2.innerHTML= `<h2>Damn! I am ${this.height}cm, and ${user.name}  is ${user.height}cm! Thats ${lengthDiff} cm less than me!</h2>`
+            }
+        }else if(this.height < user.height){
+            if(this ==profile1){
+             infoContainer1.classList.remove("hidden")
+
+                infoContainer1.innerHTML= `<h2>damn i am a short boi</h2>`
+            }else{
+             infoContainer2.classList.remove("hidden")
+
+                infoContainer2.innerHTML= `<h2>
+                damn i am a short boi</h2>`
+            }
+        }else{
+            if(this ==profile1){
+                infoContainer1.innerHTML= `<h2>We have the exact same length</h2>`
+            }else{
+                infoContainer2.innerHTML= `<h2>
+                We have the exact same length</h2>`
+            }
+
+        }
+    }
+
+    hairColor(user){
+        if(this==profile1){
+            if(this.haircolor==="none" || this.haircolor === "n/a"){
+                infoContainer1.classList.remove("hidden")
+                infoContainer1.innerHTML=`<h2>I am so sad that i dont have any hair :( i wish i had beautiful ${user.haircolor} as ${user.name}</h2>`
+            }else{
+                infoContainer1.classList.remove("hidden")
+            infoContainer1.innerHTML=`<h2>Dayum I look good in my ${this.haircolor} hair! I feel sorry for ${user.name} with that ugly ${user.haircolor} hair!</h2>`
+            }
+        }else{
+            if(this.haircolor==="none" || this.haircolor === "n/a"){
+                infoContainer2.classList.remove("hidden")
+                infoContainer2.innerHTML=`<h2>I am so sad that i dont have any hair :( i wish i had beautiful ${user.haircolor} as ${user.name}</h2>`
+            }else{
+                infoContainer2.classList.remove("hidden")
+            infoContainer2.innerHTML=`<h2>Dayum I look good in my ${this.haircolor} hair! I feel sorry for ${user.name} with that ugly ${user.haircolor} hair!</h2>`
+            
+        }
+           
+        }
+    }
+
+
 }
 
 let character1Component =(user)=>`
@@ -144,6 +201,7 @@ getCharacters.addEventListener("click",()=>{
     .then(data=>{
         profile1 = new Character(data.name,data.gender,data.height,data.mass,data.hair_color,character1.value)
         box1.innerHTML = character1Component(profile1)
+        console.log(profile1)
         butnFunc(profile1)
     })
     
