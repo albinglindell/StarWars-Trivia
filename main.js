@@ -75,16 +75,16 @@ class Character{
     weight(user){
 
         let weightDiff =  Math.floor(this.mass) - Math.floor(user.mass)
-        if(this.mass > user.mass){
+        if(Number(this.mass) > Number(user.mass)){
             if(this == profile1){
-             infoContainer1.classList.remove("hidden")
+                infoContainer1.classList.remove("hidden")
                 infoContainer1.innerHTML= `<h2>Damn! I weigh ${this.mass}kg! and ${user.name} weigh ${user.mass}kg! thats ${weightDiff}kg less than me!</h2>`
             }else if(this == profile2){
-             infoContainer2.classList.remove("hidden")
-
+                console.log(this.mass,user.mass)
+                infoContainer2.classList.remove("hidden")
                 infoContainer2.innerHTML= `<h2>Damn! I weigh ${this.mass}kg! and ${user.name} weigh ${user.mass}kg! thats ${weightDiff}kg less than me!</h2>`
             }
-        }else if(this.mass < user.mass){
+        }else if(Number(this.mass) <Number(user.mass)){
             if(this ==profile1){
              infoContainer1.classList.remove("hidden")
 
@@ -108,7 +108,7 @@ class Character{
 
     length(user){
         let lengthDiff =  Math.floor(this.height) - Math.floor(user.height)
-        if(this.height > user.height){
+        if(Number(this.height) > Number(user.height)){
             if(this == profile1){
              infoContainer1.classList.remove("hidden")
                 infoContainer1.innerHTML= `<h2>Damn! I am ${this.height}cm, and ${user.name}  is ${user.height}cm! Thats ${lengthDiff} cm less than me!</h2>`
@@ -117,7 +117,7 @@ class Character{
 
              infoContainer2.innerHTML= `<h2>Damn! I am ${this.height}cm, and ${user.name}  is ${user.height}cm! Thats ${lengthDiff} cm less than me!</h2>`
             }
-        }else if(this.height < user.height){
+        }else if(Number(this.height) < Number(user.height)){
             if(this ==profile1){
              infoContainer1.classList.remove("hidden")
 
