@@ -21,7 +21,7 @@ body{
     background-size: 100%;
 }
 .getCharacters{
-    padding: 4px;
+    padding: 1.5rem .75rem;
     position: absolute;
     bottom: 5%;
     background: #365B64;
@@ -112,4 +112,58 @@ border-radius: 10px;
 
 .hidden{
     visibility: hidden;
+}
+
+@media screen and (max-width: 600px) {
+   .image{
+       background-size: cover;
+       background-position: right;
+       
+   } 
+
+   .selectStyle{
+       width: 35vw;
+       padding: .5rem 1rem;
+   }
+   .selectCharecter{
+       position: relative;
+       bottom: 4rem;
+   }
+   .characterWrapper > img{
+       width: 50vw;
+   }
+   .name{
+       font-size: 25px;
+   }
+   .buttonContainer{
+       width: 50vw;
+       display: flex;
+       width: 40vw;
+       height: 15vh;
+       flex-wrap: wrap;
+       align-items: center;
+       justify-content: center;
+   }
+   .getCharacters{
+       padding: 1.5rem 3rem;
+   }
+   .buttonContainer button{
+    height: 5vh;
+
+   }
+   /* .characterCard{
+       position: relative;
+   bottom: 4rem;
+   } */
+   .characterCard  img{
+       width: 6rem;
+   }
+   .infoContainer1, .infoContainer2{
+   position: relative;
+   bottom: 4rem;
+   width: 45vw;
+    }
+    .infoContainer1 h2, .infoContainer2 h2{
+        font-size: 15px;
+    }
 }

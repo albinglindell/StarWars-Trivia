@@ -88,19 +88,17 @@ class Character{
             if(this ==profile1){
              infoContainer1.classList.remove("hidden")
 
-                infoContainer1.innerHTML= `<h2>damn i am a small boi</h2>`
+                infoContainer1.innerHTML= `<h2>Shiiiii I only weigh ${this.mass}kg! I feel so small next to ${user.name}s ${user.mass}kilos!</h2>`
             }else{
              infoContainer2.classList.remove("hidden")
 
-                infoContainer2.innerHTML= `<h2>
-                damn i am a small boi</h2>`
+             infoContainer2.innerHTML= `<h2>Shiiiii I only weigh ${this.mass}kg! I feel so small next to ${user.name}s ${user.mass}kilos!</h2>`
             }
         }else{
             if(this ==profile1){
-                infoContainer1.innerHTML= `<h2>We have the exact same weight</h2>`
+                infoContainer1.innerHTML= `<h2>We both weigh ${this.mass}kg!</h2>`
             }else{
-                infoContainer2.innerHTML= `<h2>
-                We have the exact same weight</h2>`
+                infoContainer2.innerHTML= `<h2>We both weigh ${this.mass}kg!</h2>`
             }
 
         }
@@ -121,12 +119,11 @@ class Character{
             if(this ==profile1){
              infoContainer1.classList.remove("hidden")
 
-                infoContainer1.innerHTML= `<h2>damn i am a short boi</h2>`
+                infoContainer1.innerHTML= `<h2>I am only ${this.height}cm! I hope I grow past ${user.name} and become longer than ${user.height}cm!</h2>`
             }else{
              infoContainer2.classList.remove("hidden")
 
-                infoContainer2.innerHTML= `<h2>
-                damn i am a short boi</h2>`
+                infoContainer2.innerHTML= `<h2>I am only ${this.height}cm! I hope I will grow past ${user.name} and become longer than ${user.height}cm!</h2>`
             }
         }else{
             if(this ==profile1){
