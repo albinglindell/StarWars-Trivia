@@ -103,7 +103,6 @@ class Character{
 
         }
     }
-
     length(user){
         let lengthDiff =  Math.floor(this.height) - Math.floor(user.height)
         if(Number(this.height) > Number(user.height)){
@@ -135,7 +134,6 @@ class Character{
 
         }
     }
-
     hairColor(user){
         if(this==profile1){
             if(this.haircolor==="none" || this.haircolor === "n/a"){
@@ -210,12 +208,11 @@ let fetching = async (chosenOne)=>{
     return data
 }
 
-let profile1
-let profile2
-
 getCharacters.addEventListener("click",()=>{
     if(character1.value === "null" || character2.value === "null"){
         alert("you need to pick your characters")
+    }else if(character1.value === character2.value){
+        alert(`sorry but the character you picked dosen't have twins, pick two different guys`)
     }else{
         infoContainer1.classList.add("hidden")
         infoContainer2.classList.add("hidden")
@@ -223,8 +220,8 @@ getCharacters.addEventListener("click",()=>{
     .then(data=>{
         profile1 = new Character(data.name,data.gender,data.height,data.mass,data.hair_color,character1.value)
         box1.innerHTML = character1Component(profile1)
-        console.log(profile1)
-        butnFunc(profile1)
+
+        butnFunc(profile1) 
     })
     
     fetching(character2.value)
